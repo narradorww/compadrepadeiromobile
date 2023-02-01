@@ -1,13 +1,16 @@
 import React from 'react';
-import {View, Text, StyleSheet, Image} from 'react-native';
+import {StyleSheet, Image} from 'react-native';
 import Logo from './src/assets/logo.png';
+import {SafeAreaView} from 'react-native-safe-area-context';
+import Button from './src/components/Button';
 
 const App = () => {
   return (
-    <View style={styles.container}>
-      <Text>Hello World</Text>
+    <SafeAreaView style={styles.container}>
       <Image source={Logo} style={styles.image} />
-    </View>
+      {/* <InputText label="Email" value="" onChangeText={() => {}} /> */}
+      {/* <Button onPress={() => {}} label="Entrar" /> */}
+    </SafeAreaView>
   );
 };
 
@@ -16,12 +19,12 @@ export default App;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#000',
+    backgroundColor: '#222222',
     alignItems: 'center',
     justifyContent: 'center',
   },
   image: {
-    width: 300,
-    height: 320,
+    width: 190,
+    height: 200,
   },
 });

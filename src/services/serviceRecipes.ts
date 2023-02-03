@@ -1,5 +1,4 @@
 import apiRecipes from './apiRecipes';
-
 export async function getRecipes() {
   try {
     const response = await apiRecipes.get('/recipes');

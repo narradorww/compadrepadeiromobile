@@ -2,7 +2,7 @@
   "recipes": [    {      "id": 1,      "name": "Pão de Abóbora",      "ingredients": [        {          "description": "Farinha de trigo",          "quantity": 300        },        {          "description": "Água",          "quantity": 200        },        {          "description": "Sal",          "quantity": 6        },        {          "description": "Abóbora cozida",          "quantity": 75        },        {          "description": "Levain",          "quantity": 75        }      ],
       "timeOfAutolysis": 120,
       "timeOfFermentation": 720,
-      "image": "https://picsum.photos/700",
+      "image": "https://firebasestorage.googleapis.com/v0/b/compadre-padeiro-23.appspot.com/o/paoAbobora.jpg?alt=media&token=6af93073-8456-49d3-a8fe-60bc760e3cf9",
       "description": "Após a autólise, adicione a abóbora cozida e o levain. Sove a massa até perceber a formação da rede de gluten. Adicione o sal. Realize 5 dobras na massa, com um intervalo de 10 minutos entre cada dobra. Polvilhe o baneton com farinha de arroz. Faça a forma e transfira a massa para o baneton. Deixe fermentar 12 horas (em temperatura ambiente) ou 20 horas em geladeira. Pré-aqueça a panela de ferro por 15 minutos em forno médio. Coloque a massa na panela, realize os cortes na massa e cubra com uma tampa. Deixe assar por 25 minutos. Retire a tampa e deixe assar por mais 30 minutos. Retire a massa da panela e deixe esfriar em uma grade."
     }
   ]

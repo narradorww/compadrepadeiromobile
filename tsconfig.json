@@ -1,3 +1,8 @@
 {
-  "extends": "@tsconfig/react-native/tsconfig.json"
+  "extends": "@tsconfig/react-native/tsconfig.json",
+  //adicionei aqui também
+  "compilerOptions": {
+    "strict": true
+},
+"typeRoots": ["./types"]
 }

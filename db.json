@@ -1,5 +1,8 @@
 {
-  "recipes": [    {      "id": 1,      "name": "Pão de Abóbora",      "ingredients": [        {          "description": "Farinha de trigo",          "quantity": 300        },        {          "description": "Água",          "quantity": 200        },        {          "description": "Sal",          "quantity": 6        },        {          "description": "Abóbora cozida",          "quantity": 75        },        {          "description": "Levain",          "quantity": 75        }      ],
+  "recipes": [    {      "id": 1,      "name": "Pão de Abóbora",      "ingredients": [        
+    { "ingredientId": "1",         "name": "Farinha de trigo",          "quantity": 300        },
+    { "ingredientId": "2",          "name": "Água",          "quantity": 200        },        {"ingredientId": "3",          "name": "Sal",          "quantity": 6        },        {"ingredientId": "4",          "name": "Abóbora cozida",          "quantity": 75        },
+    {"ingredientId": "5",          "name": "Levain",          "quantity": 75        }      ],
       "timeOfAutolysis": 120,
       "timeOfFermentation": 720,
       "image": "https://firebasestorage.googleapis.com/v0/b/compadre-padeiro-23.appspot.com/o/paoAbobora.jpg?alt=media&token=6af93073-8456-49d3-a8fe-60bc760e3cf9",

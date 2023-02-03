@@ -14,10 +14,10 @@ const Recipe = ({name, ingredients, description, image}: IRecipe) => (
 
         <FlatList
           data={ingredients}
-          keyExtractor={ingredient => ingredient.name}
+          keyExtractor={ingredient => ingredient.ingredientId.toString()}
           renderItem={({item}) => (
             <View style={styles.ingredients}>
-              <Text variant="bodyMedium">{item.description}</Text>
+              <Text variant="bodyMedium">{item.name}</Text>
               <Text variant="bodyMedium">{item.quantity}g</Text>
             </View>
           )}

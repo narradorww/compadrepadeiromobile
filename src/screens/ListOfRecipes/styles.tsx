@@ -6,8 +6,8 @@ export default StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     justifyContent: 'flex-start',
-    paddingTop: 10,
-    paddingHorizontal: 10,
+    paddingTop: 20,
+    paddingHorizontal: 20,
     backgroundColor: '#222222',
   },
 
@@ -16,9 +16,15 @@ export default StyleSheet.create({
     height: 100,
   },
 
-  loader: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
+  text: {
+    color: '#fff',
+    fontSize: 20,
+    fontWeight: 'bold',
+    marginTop: 10,
+  },
+
+  button: {
+    width: '100%',
+    marginTop: 20,
   },
 });

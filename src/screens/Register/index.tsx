@@ -16,7 +16,7 @@ export default function Register() {
 
   async function handleRegister() {
     if (email === '') {
-      setMessageError('O campo e-mconfirmPasswordail é obrigatório');
+      setMessageError('O campo e-mail é obrigatório');
       setStatusError('email');
     } else if (password === '') {
       setMessageError('O campo senha é obrigatório');

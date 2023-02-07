@@ -1,43 +1,46 @@
-import React, {useState} from 'react';
-import useRecipe from './../../hooks/useRecipe';
-import {FlatList, Text, Image, View} from 'react-native';
+import React, {useState, useEffect} from 'react';
+import {Image, View, ScrollView} from 'react-native';
+import Loader from '../../components/Loader';
 import Recipe from '../../components/Recipe';
 import logo from '../../assets/logo.png';
 import styles from './styles';
+import {getRecipeById} from '../../services/serviceRecipes';
 
-export default function Recipes() {
-  const {recipes, getRecipesList} = useRecipe();
+export default function Recipes({route}) {
   const [loading, setLoading] = useState(false);
+  const [recipe, setRecipe] = useState({});
+  const {id} = route.params;
 
-  const handleGetRecipes = async () => {
-    setLoading(true);
-    await getRecipesList();
-    setLoading(false);
-  };
+  useEffect(() => {
+    async function loadRecipe() {
+      setLoading(true);
+      const response = await getRecipeById(id);
+      setRecipe(response);
+      setLoading(false);
+    }
+    loadRecipe();
+  }, []);
 
   if (loading) {
-    return <Text>Loading...</Text>;
+    return (
+      <View style={styles.loader}>
+        <Loader />
+      </View>
+    );
   }
 
   return (
     <View style={styles.container}>
       <Image source={logo} style={styles.image} />
-
-      <FlatList
-        data={recipes}
-        keyExtractor={recipe => recipe.id.toString()}
-        renderItem={({item}) => (
-          <Recipe
-            name={item.name}
-            image={item.image}
-            ingredients={item.ingredients}
-            description={item.description}
-            id={item.id}
-          />
-        )}
-        onRefresh={handleGetRecipes}
-        refreshing={loading}
-      />
+      <ScrollView>
+        <Recipe
+          name={recipe.name}
+          image={recipe.image}
+          ingredients={recipe.ingredients}
+          description={recipe.description}
+          id={recipe.id}
+        />
+      </ScrollView>
     </View>
   );
 }

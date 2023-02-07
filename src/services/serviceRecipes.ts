@@ -10,7 +10,7 @@ export async function getRecipes() {
   }
 }
 
-export async function getRecipeById(id: number) {
+export async function getRecipeById(id: string) {
   try {
     const response = await apiRecipes.get(`/recipes/${id}`);
     return response.data;

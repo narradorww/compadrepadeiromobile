@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react';
-import {View, Image, Text} from 'react-native';
+import {View, Image} from 'react-native';
 import {SafeAreaView} from 'react-native-safe-area-context';
-// import LottieView from 'lottie-react-native';
+import Loader from '../../components/Loader';
 import InputText from '../../components/InputText';
 import Button from '../../components/Button';
 import logo from '../../assets/logo.png';
@@ -27,10 +27,12 @@ export default function Login({navigation}) {
   const [statusError, setStatusError] = useState('');
   const [loading, setLoading] = useState(true);
 
+  //verifica se o usuário está autenticado, se sim, redireciona para a tela de receitas
   useEffect(() => {
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const estadoUsuario = auth.onAuthStateChanged(usuario => {
       if (usuario) {
-        navigation.replace('Principal');
+        navigation.replace('ListOfRecipes');
       }
       setLoading(false);
     });
@@ -47,11 +49,15 @@ export default function Login({navigation}) {
       setStatusError('senha');
     } else {
       const result = await login(authData.email, authData.password);
-      if (result === 'E-mail inválido' || 'Senha inválida') {
+      if (result === 'E-mail inválido') {
+        console.log('resultado', result);
+        setStatusError('firebase');
+        setMessageError('E-mail ou senha inválidos');
+      } else if (result === 'Senha incorreta') {
         setStatusError('firebase');
         setMessageError('E-mail ou senha inválidos');
       } else {
-        navigation.replace('Principal');
+        navigation.replace('ListOfRecipes');
       }
     }
   }
@@ -59,7 +65,7 @@ export default function Login({navigation}) {
   if (loading) {
     return (
       <View style={styles.containerAnimacao}>
-        {/* <LottieView source={{uri: '../../assets/loader.gif'}} /> */}
+        <Loader />
       </View>
     );
   }
@@ -94,7 +100,7 @@ export default function Login({navigation}) {
       <Button onPress={() => realizarLogin()}>LOGAR</Button>
       <Button
         onPress={() => {
-          navigation.navigate('Cadastro');
+          navigation.navigate('Register');
         }}>
         CADASTRAR USUÁRIO
       </Button>

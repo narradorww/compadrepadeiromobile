@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {FlatList, View} from 'react-native';
+import {FlatList, ScrollView, View} from 'react-native';
 import {Card, Text} from 'react-native-paper';
 import {IRecipe} from '../../Interfaces/interfaces';
 import styles from './styles';

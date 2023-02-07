@@ -1,17 +1,18 @@
 import {useEffect, useState} from 'react';
-import {getRecipes} from '../services/serviceRecipes';
+import {getRecipeById} from '../services/serviceRecipes';
 
 interface RecipeHook {
-  recipes: any[];
-  getRecipesList: () => Promise<void>;
+  recipe: any;
+  getRecipe: () => Promise<void>;
+  id: string;
 }
 
-export default function useRecipe() {
-  const [recipes, setRecipes] = useState([]);
+export default function useRecipes({id}: RecipeHook) {
+  const [recipe, setRecipes] = useState([]);
 
-  const getRecipesList = async () => {
+  const getRecipe = async () => {
     try {
-      const response = await getRecipes();
+      const response = await getRecipeById(id);
       console.log('response.data', response);
       setRecipes(response);
     } catch (error) {
@@ -20,8 +21,8 @@ export default function useRecipe() {
   };
 
   useEffect(() => {
-    getRecipesList();
+    getRecipe();
   }, []);
 
-  return {recipes, getRecipesList} as RecipeHook;
+  return {recipe, getRecipe} as RecipeHook;
 }

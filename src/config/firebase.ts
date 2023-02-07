@@ -15,16 +15,6 @@ import {
   MEASUREMENT_ID,
 } from '@env';
 
-// const firebaseENV = {
-//   API_KEY: 'AIzaSyB5YrwpaN3rzKbW9icnxfoi1CF67_nldSI',
-//   AUTH_DOMAIN: 'compadre-padeiro-23.firebaseapp.com',
-//   PROJECT_ID: 'compadre-padeiro-23',
-//   STORAGE_BUCKET: 'compadre-padeiro-23.appspot.com',
-//   MESSAGING_SENDER_ID: '549855745108',
-//   APP_ID: '1:549855745108:web:40f62268d56e3585a889c1',
-//   MEASUREMENT_ID: 'G-KVXYYYLBHV',
-// };
-
 const firebaseConfig = {
   apiKey: API_KEY,
   authDomain: AUTH_DOMAIN,

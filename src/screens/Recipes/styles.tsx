@@ -8,6 +8,7 @@ export default StyleSheet.create({
     justifyContent: 'flex-start',
     paddingTop: 10,
     paddingHorizontal: 20,
+    backgroundColor: '#222222',
   },
 
   image: {

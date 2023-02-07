@@ -1,13 +1,12 @@
 import React, {useState, useEffect} from 'react';
 import {View, Image, Text} from 'react-native';
 import {SafeAreaView} from 'react-native-safe-area-context';
+// import LottieView from 'lottie-react-native';
 import InputText from '../../components/InputText';
 import Button from '../../components/Button';
-
 import logo from '../../assets/logo.png';
 import {Alert} from '../../components/Alert';
 import {auth} from '../../config/firebase';
-import {StackNavigationProp} from '@react-navigation/stack';
 import styles from './styles';
 import {login} from '../../services/firebaseReq';
 
@@ -60,7 +59,7 @@ export default function Login({navigation}) {
   if (loading) {
     return (
       <View style={styles.containerAnimacao}>
-        <Text>Carregando Caraio</Text>
+        {/* <LottieView source={{uri: '../../assets/loader.gif'}} /> */}
       </View>
     );
   }

@@ -5,14 +5,16 @@ export default StyleSheet.create({
     width: '100%',
     flex: 1,
     alignItems: 'center',
-    justifyContent: 'flex-start',
-    paddingTop: 25,
+    justifyContent: 'center',
+    paddingTop: 20,
     paddingHorizontal: 20,
+    backgroundColor: '#222222',
   },
 
   imagem: {
-    width: 190,
-    height: 200,
+    width: 100,
+    height: 100,
+    marginBottom: 20,
   },
 
   containerAnimacao: {

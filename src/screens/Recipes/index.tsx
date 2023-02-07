@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import useRecipe from './../../hooks/useRecipe';
-import {FlatList, Text, Image} from 'react-native';
+import {FlatList, Text, Image, View} from 'react-native';
 import Recipe from '../../components/Recipe';
 import logo from '../../assets/logo.png';
 import styles from './styles';
@@ -20,7 +20,7 @@ export default function Recipes() {
   }
 
   return (
-    <>
+    <View style={styles.container}>
       <Image source={logo} style={styles.image} />
 
       <FlatList
@@ -38,6 +38,6 @@ export default function Recipes() {
         onRefresh={handleGetRecipes}
         refreshing={loading}
       />
-    </>
+    </View>
   );
 }

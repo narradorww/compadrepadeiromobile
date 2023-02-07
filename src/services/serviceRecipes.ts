@@ -2,6 +2,7 @@ import apiRecipes from './apiRecipes';
 export async function getRecipes() {
   try {
     const response = await apiRecipes.get('/recipes');
+    console.log(response);
     return response.data;
   } catch (error) {
     console.log(error);

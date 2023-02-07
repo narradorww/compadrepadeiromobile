@@ -1,23 +1,16 @@
 import React, {useState} from 'react';
 import {TextInput, HelperText} from 'react-native-paper';
+import Icon from 'react-native-vector-icons/FontAwesome';
 import style from './styles';
-
-interface IInputProps {
-  label: string;
-  value: string;
-  onChangeText: () => void;
-  secureTextEntry?: boolean;
-  error?: boolean;
-  messageError?: string;
-}
+import {IInputProps} from '../../Interfaces/interfaces';
 
 export default function InputText({
   label,
   value,
   onChangeText,
-  secureTextEntry,
   error,
   messageError,
+  secureTextEntry,
 }: IInputProps) {
   const [secureMode, setSecureMode] = useState(secureTextEntry);
 
@@ -31,11 +24,10 @@ export default function InputText({
         secureTextEntry={secureMode}
         style={style.input}
         mode="outlined"
-        activeOutlineColor="#583E23"
         right={
           secureTextEntry ? (
-            <TextInput.Icon
-              icon={secureMode ? 'eye-off' : 'eye'}
+            <Icon
+              name={secureMode ? 'eye' : 'eye-slash'}
               onPress={() => setSecureMode(!secureMode)}
             />
           ) : null

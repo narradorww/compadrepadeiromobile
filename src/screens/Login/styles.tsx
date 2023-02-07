@@ -1,14 +1,28 @@
 import {StyleSheet} from 'react-native';
 
 export default StyleSheet.create({
-  input: {
-    height: 50,
+  container: {
     width: '100%',
-    borderColor: '#e6e6e6',
-    borderWidth: 1,
-    borderRadius: 5,
-    paddingHorizontal: 10,
-    marginTop: 10,
-    backgroundColor: '#fff',
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'flex-start',
+    paddingTop: 25,
+    paddingHorizontal: 20,
+  },
+
+  imagem: {
+    width: 190,
+    height: 200,
+  },
+
+  containerAnimacao: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+
+  animacao: {
+    width: 200,
+    height: 200,
   },
 });

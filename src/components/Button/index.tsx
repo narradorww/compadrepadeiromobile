@@ -2,15 +2,15 @@ import React from 'react';
 import {Text, TouchableOpacity} from 'react-native';
 import style from './styles';
 
-interface IButonProps {
+interface IButtonProps {
   onPress: () => void;
-  label: string;
+  children?: any;
 }
 
-export default function Button({onPress, label}: IButonProps) {
+export default function Button({onPress, children}: IButtonProps) {
   return (
     <TouchableOpacity style={style.button} onPress={onPress}>
-      <Text style={style.text}>{label}</Text>
+      <Text style={style.text}>{children}</Text>
     </TouchableOpacity>
   );
 }

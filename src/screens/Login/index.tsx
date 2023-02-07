@@ -1,51 +1,104 @@
-import React, {useState} from 'react';
-import {TextInput, HelperText} from 'react-native-paper';
-import style from './styles';
+import React, {useState, useEffect} from 'react';
+import {View, Image, Text} from 'react-native';
+import {SafeAreaView} from 'react-native-safe-area-context';
+import InputText from '../../components/InputText';
+import Button from '../../components/Button';
 
-interface IInputProps {
-  label: string;
-  value: string;
-  onChangeText: () => void;
-  secureTextEntry: boolean;
-  error: boolean;
-  messageError: string;
-}
+import logo from '../../assets/logo.png';
+import {Alert} from '../../components/Alert';
+import {auth} from '../../config/firebase';
+import {StackNavigationProp} from '@react-navigation/stack';
+import styles from './styles';
+import {login} from '../../services/firebaseReq';
 
-export default function InputText({
-  label,
-  value,
-  onChangeText,
-  secureTextEntry,
-  error,
-  messageError,
-}: IInputProps) {
-  const [secureMode, setSecureMode] = useState(secureTextEntry);
+export default function Login({navigation}) {
+  const [authData, setAuthData] = useState({
+    email: '',
+    password: '',
+  });
+
+  const changeData = (variable: any, value: any) => {
+    setAuthData({
+      ...authData,
+      [variable]: value,
+    });
+  };
+
+  const [messageError, setMessageError] = useState('');
+  const [statusError, setStatusError] = useState('');
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const estadoUsuario = auth.onAuthStateChanged(usuario => {
+      if (usuario) {
+        navigation.replace('Principal');
+      }
+      setLoading(false);
+    });
+
+    return () => {};
+  }, [navigation]);
+
+  async function realizarLogin() {
+    if (authData.email === '') {
+      setMessageError('O campo e-mail é obrigatório');
+      setStatusError('email');
+    } else if (authData.password === '') {
+      setMessageError('O campo senha é obrigatório');
+      setStatusError('senha');
+    } else {
+      const result = await login(authData.email, authData.password);
+      if (result === 'E-mail inválido' || 'Senha inválida') {
+        setStatusError('firebase');
+        setMessageError('E-mail ou senha inválidos');
+      } else {
+        navigation.replace('Principal');
+      }
+    }
+  }
+
+  if (loading) {
+    return (
+      <View style={styles.containerAnimacao}>
+        <Text>Carregando Caraio</Text>
+      </View>
+    );
+  }
 
   return (
-    <>
-      <TextInput
-        label={label}
-        value={value}
-        error={error}
-        onChangeText={onChangeText}
-        secureTextEntry={secureMode}
-        style={style.input}
-        mode="outlined"
-        activeOutlineColor="#1E8187"
-        right={
-          secureTextEntry ? (
-            <TextInput.Icon
-              icon={secureMode ? 'eye-off' : 'eye'}
-              onPress={() => setSecureMode(!secureMode)}
-            />
-          ) : null
-        }
+    <SafeAreaView style={styles.container}>
+      <Image style={styles.imagem} source={logo} />
+
+      <InputText
+        label="Email"
+        value={authData.email}
+        onChangeText={value => changeData('email', value)}
+        error={statusError === 'email'}
+        messageError={messageError}
       />
-      {error && (
-        <HelperText type="error" visible={error}>
-          {messageError}
-        </HelperText>
-      )}
-    </>
+
+      <InputText
+        label="Senha"
+        value={authData.password}
+        onChangeText={value => changeData('password', value)}
+        error={statusError === 'password'}
+        messageError={messageError}
+        secureTextEntry
+      />
+
+      <Alert
+        message={messageError}
+        error={statusError === 'firebase'}
+        setError={setStatusError}
+        duration={1800}
+      />
+      <Button onPress={() => realizarLogin()}>LOGAR</Button>
+      <Button
+        onPress={() => {
+          navigation.navigate('Cadastro');
+        }}>
+        CADASTRAR USUÁRIO
+      </Button>
+    </SafeAreaView>
   );
 }

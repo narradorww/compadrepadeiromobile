@@ -1,18 +1,17 @@
 import React from 'react';
-import {StyleSheet, Image} from 'react-native';
-import Logo from './src/assets/logo.png';
-import {SafeAreaView} from 'react-native-safe-area-context';
-// import Button from './src/components/Button';
+import {StyleSheet} from 'react-native';
+import {SafeAreaProvider} from 'react-native-safe-area-context';
+import Routes from './src/routes/routes';
+import HelloWorld from './src/screens/HelloWorld';
 import Recipes from './src/screens/Recipes';
+import Login from './src/screens/Login/index';
+import Register from './src/screens/Register';
 
 const App = () => {
   return (
-    <SafeAreaView style={styles.container}>
-      <Image source={Logo} style={styles.image} />
-      {/* <InputText label="Email" value="" onChangeText={() => {}} /> */}
-      {/* <Button onPress={() => {}} label="Entrar" /> */}
+    <SafeAreaProvider style={styles.container}>
       <Recipes />
-    </SafeAreaView>
+    </SafeAreaProvider>
   );
 };
 
@@ -24,6 +23,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#222222',
     alignItems: 'center',
     justifyContent: 'center',
+    paddingVertical: 20,
   },
   image: {
     width: 190,

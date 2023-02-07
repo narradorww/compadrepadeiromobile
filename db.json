@@ -7,6 +7,15 @@
       "timeOfFermentation": 720,
       "image": "https://firebasestorage.googleapis.com/v0/b/compadre-padeiro-23.appspot.com/o/paoAbobora.jpg?alt=media&token=6af93073-8456-49d3-a8fe-60bc760e3cf9",
       "description": "Após a autólise, adicione a abóbora cozida e o levain. Sove a massa até perceber a formação da rede de gluten. Adicione o sal. Realize 5 dobras na massa, com um intervalo de 10 minutos entre cada dobra. Polvilhe o baneton com farinha de arroz. Faça a forma e transfira a massa para o baneton. Deixe fermentar 12 horas (em temperatura ambiente) ou 20 horas em geladeira. Pré-aqueça a panela de ferro por 15 minutos em forno médio. Coloque a massa na panela, realize os cortes na massa e cubra com uma tampa. Deixe assar por 25 minutos. Retire a tampa e deixe assar por mais 30 minutos. Retire a massa da panela e deixe esfriar em uma grade."
+    },
+    {      "id": 2,      "name": "Focaccia",      "ingredients": [        
+    { "ingredientId": "1",         "name": "Farinha de trigo",          "quantity": 1000        },
+    { "ingredientId": "2",          "name": "Água",          "quantity": 500        },        {"ingredientId": "3",          "name": "Sal",          "quantity": 12        },        {"ingredientId": "4",          "name": "Azeite",          "quantity": 14        },
+    {"ingredientId": "5",          "name": "Levain",          "quantity": 250        }, {"ingredientId": "6",          "name": "Alecrim",          "quantity": 50        }, {"ingredientId": "7",          "name": "Sal Grosso",          "quantity": 10        }      ],
+      "timeOfAutolysis": 120,
+      "timeOfFermentation": 720,
+      "image": "https://firebasestorage.googleapis.com/v0/b/compadre-padeiro-23.appspot.com/o/focaccia.jpg?alt=media&token=ec0ab14b-c9a9-4cd7-86b5-297a6d0c340f",
+      "description": "Após a autólise, adicione o levain. Sove a massa até perceber a formação da rede de gluten. Adicione o azeite e o sal. Realize 5 dobras na massa, com um intervalo de 10 minutos entre cada dobra. Polvilhe uma forma retangular com farinha de arroz. Transfira a massa para a forma. Deixe fermentar 12 horas (em temperatura ambiente) ou 20 horas em geladeira. Pré-aqueça o forno por 15minutos a 180graus. Espalhe azeite sobre a massa e com os dedos faça 'furos' delicadamente na massa até que ela levante bolhas. Salpique sal grosso e alecrim sobre a massa. Deixe assar por 25 minutos. Com um spray espalhe agua sobre a massa e deixe assar por mais 5minutos ou até dourar ."
     }
   ]
 }

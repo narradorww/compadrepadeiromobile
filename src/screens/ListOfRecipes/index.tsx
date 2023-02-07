@@ -5,6 +5,7 @@ import Button from '../../components/Button';
 import logo from '../../assets/logo.png';
 import styles from './styles';
 import useRecipes from '../../hooks/useRecipes';
+import Header from '../../components/Header';
 
 export default function ListOfRecipes({navigation}) {
   const {recipes, getRecipesList} = useRecipes();
@@ -22,7 +23,8 @@ export default function ListOfRecipes({navigation}) {
 
   if (loading) {
     return (
-      <View>
+      <View style={styles.container}>
+        <Header back={true} logout={true} />
         <Loader />
       </View>
     );
@@ -30,7 +32,9 @@ export default function ListOfRecipes({navigation}) {
 
   return (
     <View style={styles.container}>
-      <Image source={logo} style={styles.image} />
+      <View style={styles.header}>
+        <Header back={true} logout={true} />
+      </View>
 
       <Text style={styles.text}> Receitas </Text>
 

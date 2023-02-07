@@ -11,9 +11,8 @@ export default StyleSheet.create({
     backgroundColor: '#222222',
   },
 
-  image: {
-    width: 100,
-    height: 100,
+  header: {
+    height: 116,
   },
 
   text: {

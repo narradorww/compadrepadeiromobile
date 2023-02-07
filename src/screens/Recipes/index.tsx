@@ -1,8 +1,8 @@
 import React, {useState, useEffect} from 'react';
-import {Image, View, ScrollView} from 'react-native';
+import {View, ScrollView} from 'react-native';
+import Header from '../../components/Header';
 import Loader from '../../components/Loader';
 import Recipe from '../../components/Recipe';
-import logo from '../../assets/logo.png';
 import styles from './styles';
 import {getRecipeById} from '../../services/serviceRecipes';
 
@@ -31,7 +31,10 @@ export default function Recipes({route}) {
 
   return (
     <View style={styles.container}>
-      <Image source={logo} style={styles.image} />
+      <View style={styles.header}>
+        <Header back logout />
+      </View>
+
       <ScrollView>
         <Recipe
           name={recipe.name}

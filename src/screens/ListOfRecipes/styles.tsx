@@ -5,7 +5,7 @@ export default StyleSheet.create({
     width: '100%',
     flex: 1,
     alignItems: 'center',
-    justifyContent: 'flex-start',
+    justifyContent: 'center',
     paddingTop: 20,
     paddingHorizontal: 20,
     backgroundColor: '#222222',
@@ -13,13 +13,15 @@ export default StyleSheet.create({
 
   header: {
     height: 116,
+    width: '100%',
+    alignItems: 'center',
   },
 
   text: {
     color: '#fff',
     fontSize: 20,
     fontWeight: 'bold',
-    marginTop: 10,
+    marginTop: 20,
   },
 
   button: {

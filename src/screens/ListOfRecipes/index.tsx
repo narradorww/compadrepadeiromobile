@@ -6,10 +6,20 @@ import logo from '../../assets/logo.png';
 import styles from './styles';
 import useRecipes from '../../hooks/useRecipes';
 import Header from '../../components/Header';
+import {auth} from '../../config/firebase';
 
 export default function ListOfRecipes({navigation}) {
   const {recipes, getRecipesList} = useRecipes();
   const [loading, setLoading] = useState(false);
+
+  function handleLogout() {
+    auth.signOut();
+    navigation.navigate('Login');
+  }
+
+  function goBack() {
+    navigation.navigate('Login');
+  }
 
   const handleGetRecipes = async () => {
     setLoading(true);
@@ -24,7 +34,7 @@ export default function ListOfRecipes({navigation}) {
   if (loading) {
     return (
       <View style={styles.container}>
-        <Header back={true} logout={true} />
+        <Header />
         <Loader />
       </View>
     );
@@ -33,7 +43,7 @@ export default function ListOfRecipes({navigation}) {
   return (
     <View style={styles.container}>
       <View style={styles.header}>
-        <Header back={true} logout={true} />
+        <Header right="Sair" pressRight={handleLogout} />
       </View>
 
       <Text style={styles.text}> Receitas </Text>

@@ -4,25 +4,37 @@ import logo from '../../assets/logo.png';
 import styles from './styles';
 
 interface HeaderProps {
-  back?: boolean;
-  logout?: boolean;
+  left?: string | '';
+  right?: string | '';
+  pressLeft?: () => void;
+  pressRight?: () => void;
   style?: object;
 }
 
-export default function Header({back, logout, style}: HeaderProps) {
+export default function Header({
+  left,
+  right,
+  pressLeft,
+  pressRight,
+  style,
+}: HeaderProps) {
   return (
     <View style={styles.container}>
-      {back ? (
-        <TouchableOpacity style={styles.button} onPress={() => {}}>
-          <Text style={styles.textButton}>Back</Text>
+      {left ? (
+        <TouchableOpacity onPress={pressLeft}>
+          <Text style={styles.textButton}>{left}</Text>
         </TouchableOpacity>
-      ) : null}
+      ) : (
+        <Text style={styles.textVoid}>Void</Text>
+      )}
       <Image style={styles.image} source={logo} />
-      {logout ? (
-        <TouchableOpacity style={styles.button} onPress={() => {}}>
-          <Text style={styles.textButton}>Logout</Text>
+      {right ? (
+        <TouchableOpacity onPress={pressRight}>
+          <Text style={styles.textButton}>{right}</Text>
         </TouchableOpacity>
-      ) : null}
+      ) : (
+        <Text style={styles.textVoid}>Void</Text>
+      )}
     </View>
   );
 }
